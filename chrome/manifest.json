@@ -1,0 +1,30 @@
+{
+    "name":"TubeCounter",
+    "version":"1.0",
+    "manifest_version":3,
+    "description":"Know how much you love a video by tracking your view count",
+    "icons": {
+        "128": "./icons/128.png",
+        "48": "./icons/48.png",
+        "16": "./icons/16.png"
+    },
+    "action":{
+        "default_icon": {
+            "128": "./icons/128.png",
+            "48": "./icons/48.png",
+            "16": "./icons/16.png"
+        }
+    },
+    "content_scripts":[
+        {
+           "js":["./js/content.js"],
+           "matches": ["https://*.youtube.com/*"],
+           "css":["./content.css"]
+        }
+    ],
+    "permissions": ["storage"],
+    "host_permissions": [
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*"
+    ]
+}

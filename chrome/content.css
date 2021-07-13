@@ -1,0 +1,11 @@
+.ytp-watch-count-button{
+    display: flex;
+    align-items: center;
+    width: 40px;
+}
+.ytp-watch-count-icon{
+    height: 36px;
+}
+.ytp-watch-count-text{
+    font-size: 1.5em;
+}
