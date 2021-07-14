@@ -1,6 +1,6 @@
 {
-    "name":"TubeCounter",
-    "version":"1.0",
+    "name":"TubeCount",
+    "version":"1.0.1",
     "manifest_version":3,
     "description":"Know how much you love a video by tracking your view count",
     "icons": {
