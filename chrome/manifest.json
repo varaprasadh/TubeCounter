@@ -1,6 +1,6 @@
 {
     "name":"TubeCount",
-    "version":"1.0.1",
+    "version":"1.0.2",
     "manifest_version":3,
     "description":"Know how much you love a video by tracking your view count",
     "icons": {
@@ -22,7 +22,10 @@
            "css":["./content.css"]
         }
     ],
-    "permissions": ["storage"],
+    "background": {
+        "service_worker": "bg-wrapper.js"
+    },
+    "permissions": ["storage", "webNavigation"],
     "host_permissions": [
         "http://www.youtube.com/*",
         "https://www.youtube.com/*"

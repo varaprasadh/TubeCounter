@@ -21,12 +21,18 @@ function renderCount(count) {
 }
 
 
-const videoPlayer = document.querySelector("#movie_player > div.html5-video-container > video");
-if (videoPlayer) {
-    videoPlayer.addEventListener('loadeddata', e => {
-        processAndRenderCount();
-    })
-}
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+       if(request.type === 'refresh-video-count' ){
+           const videoPlayer = document.querySelector("#movie_player > div.html5-video-container > video");
+           if (videoPlayer) {
+               videoPlayer.addEventListener('loadeddata', e => {
+                   processAndRenderCount();
+               })
+           }
+       }
+    }
+);
 
 async function processAndRenderCount() {
     let videoID = new URL(window.location.href).searchParams.get('v');
@@ -40,8 +46,6 @@ async function processAndRenderCount() {
         } catch (err) {
             videos = {};
         }
-        // console.log("video:", videoID);
-        // console.log("store", videos);
 
         videos[videoID] = (videos[videoID] || 0) + 1;
 
